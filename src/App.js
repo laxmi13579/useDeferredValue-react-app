@@ -1,24 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import List from './List';
 
 function App() {
+  const [text, setText] = useState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <input value={text} type='text' onChange={(e)=>setText(e.target.value)}/>
+      <List input={text} />
+    </>
   );
 }
 
